@@ -1,9 +1,21 @@
 <!-- Edit Quote -->
 <template>
-  <h3 class="slds-page-header__title">Welcome to quote {quoteData.name}!</h3>
+  <!-- <h3 class="slds-page-header__title">Welcome to quote {quoteData.name}!</h3>
   Quote Project Ends On:
   <lightning-formatted-date-time
     value={quoteData.endDate}
     time-zone="UTC"
-  ></lightning-formatted-date-time>
+  ></lightning-formatted-date-time> -->
+  <lightning-card title="Quetos" icon-name="custom:custom63">
+    <div class="slds-m-around_medium">
+        <template if:true={quotesList}>
+            <template for:each={quotesList} for:item="obj">
+                Name: <p key={obj.Id}>{obj.Name}</p>
+                Start Date : <lightning-formatted-date-time  key={obj.Id} value={obj.start_date__c}></lightning-formatted-date-time>
+                End Date : <lightning-formatted-date-time  key={obj.Id} value={obj.EndDate__c}></lightning-formatted-date-time>
+            </template>
+        </template>
+    </div>
+</lightning-card>
+
 </template>
